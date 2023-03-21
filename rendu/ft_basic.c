@@ -27,7 +27,7 @@ int	ft_strlen(char *str)
 	return (c);
 }
 
-void	display_map(int **map, int lignes, int colonnes)
+void	display_map(char **map, int lignes, int colonnes)
 {
 	int	i;
 	int	j;
@@ -46,43 +46,38 @@ void	display_map(int **map, int lignes, int colonnes)
 	}
 }
 
-void	apply_filter(int **map, char* mask, int lignes, int colonnes)
+void	display_number_map(int **map, int lignes, int colonnes)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
 	while (i < lignes)
 	{
 		j = 0;
 		while (j < colonnes)
 		{
-			map[i][j] = mask[map[i][j]];
+			ft_putchar(map[i][j] + '0');
 			j++;
 		}
+		ft_putchar('\n');
 		i++;
 	}
 }
 
-void	remove_filter(int **map, char* mask, int lignes, int colonnes)
+int	ft_atoi(char *str)
 {
 	int	i;
-	int	j;
-	
+	int	res;
+
 	i = 0;
-	while (i < lignes)
+	res = 0;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		j = 0;
-		while (j < colonnes)
-		{
-			if(map[i][j] == mask[0])
-				map[i][j] = 0;
-			else if(map[i][j] == mask[1])
-				map[i][j] = 1;
-			else
-				map[i][j] = 2;
-			j++;
-		}
+		res = res * 10 + (str[i] - '0');
 		i++;
+		if (res > 2147483647)
+			return (-1);
 	}
+	return (res);
 }
