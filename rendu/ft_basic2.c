@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_basic2.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmalassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 17:54:50 by vmalassi          #+#    #+#             */
-/*   Updated: 2023/03/21 17:54:52 by vmalassi         ###   ########.fr       */
+/*   Created: 2023/03/22 16:35:05 by vmalassi          #+#    #+#             */
+/*   Updated: 2023/03/22 16:35:06 by vmalassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int main(int argc, char *argv[])
+int	length_until_char(char *str, char c)
 {
+	int	length;
 
-	int	i;
+	length = 0;
+	while (str[length] && str[length]!= c)
+		length++;
+	return (length);
+}
 
-	if (argc < 2)
-	{
-		solve_inputs();
-	}
-	else
-	{
-		i = 1;
-		while (i < argc)
-			solve_file(argv[i++]);
-	}
-	return (0);
+void	put_str(char *str)
+{
+	while(*str)
+		write(1, str++, 1);
 }

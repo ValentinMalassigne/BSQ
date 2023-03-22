@@ -1,31 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   solve_inputs.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vmalassi <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 17:54:50 by vmalassi          #+#    #+#             */
-/*   Updated: 2023/03/21 17:54:52 by vmalassi         ###   ########.fr       */
+/*   Created: 2023/03/22 18:56:18 by vmalassi          #+#    #+#             */
+/*   Updated: 2023/03/22 18:56:20 by vmalassi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft.h"
 
-int main(int argc, char *argv[])
+void	solve_inputs()
 {
+	char	*first_line;
+	char	**map;
 
-	int	i;
-
-	if (argc < 2)
-	{
-		solve_inputs();
-	}
-	else
-	{
-		i = 1;
-		while (i < argc)
-			solve_file(argv[i++]);
-	}
-	return (0);
+	first_line = NULL;
+	map = NULL;
+	if (read_inputs(&map, &first_line) != 1)
+		put_str("map error\n");
+	if (check_inputs(map, ft_atoi(get_lines_count(first_line)),get_filter(first_line)) != 1)
+		put_str("map error2\n");
+	
+		//runProgram
 }
