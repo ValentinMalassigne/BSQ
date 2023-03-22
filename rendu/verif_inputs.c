@@ -18,14 +18,14 @@ int	check_length(char **map, int lines_count)
 	int	length;
 
 	i = 1;
-	length = ft_strlen(map[0]);
+	length = length_until_char(map[0], '\n');
 	while (i < lines_count)
 	{
-		if (ft_strlen(map[i]) != length)
+		if (length_until_char(map[i], '\n') != length)
 			return (0);
 		i++;
 	}
-	if(length < 2)
+	if(length < 1)
 		return (0);
 	return (1);
 }

@@ -18,7 +18,6 @@ char *read_line(int buff_size)
 	char	*content;
 	char	*buf;
 	char	*tmp;
-
 	buf = malloc(sizeof(char) * buff_size);
 	if (!buf)
 		return NULL;
@@ -45,9 +44,9 @@ char	*correct_first_map_line(char *str)
 	char	*res;
 
 	i = 0;
-	while('0' <= str[i] && str[i] <= '9')
+	while(str[i]!= '\n' && str[i])
 		i++;
-	i = i + 3 + 1;
+	i = i + 1;
 	res = malloc (i * sizeof(char));
 	j = 0;
 	while (j < i - 1)
