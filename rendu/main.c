@@ -105,6 +105,14 @@ char	*get_lines_count(char *file_content)
 	return (res);
 }
 
+int	get_lines_length(char *file_content)
+{
+	while(*file_content != '\n' && *file_content)
+		file_content++;
+	file_content++;
+	return (length_until_char(file_content , '\n'));
+}
+
 int	main(void)
 {
 	char	**map;
@@ -115,18 +123,17 @@ int	main(void)
 
 	//Faire la recup des parametres pour savoir si on prend files ou inputs	
 	
-	file_content = parse("test0");
+	file_content = parse("test1");
 	
 	// Faire les verifs sur le file content
-	
-	lines_count = ft_atoi(get_lines_count(file_content));
-	lines_length = length_until_char((file_content + 5), '\n');
-	
-	filter = get_filter(file_content);
 
+	lines_count = ft_atoi(get_lines_count(file_content));
+
+	lines_length = get_lines_length(file_content);
+	filter = get_filter(file_content);
 	map = malloc(lines_count * sizeof(char *));
-	//init_map(map, file_content, lines_count, lines_length);
-	test_init_map(map, lines_count, lines_length);
+	init_map(map, file_content, lines_count, lines_length);
+	//test_init_map(map, lines_count, lines_length);
 	map = get_biggest_square(map, filter, lines_count, lines_length);
 	display_map(map, lines_count, lines_length);
 	

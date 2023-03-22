@@ -23,7 +23,7 @@ void	init_count_map(int **count_map, int lignes, int colonnes)
 		count_map[i] = malloc((colonnes + 1) * sizeof(int));
 		j = 0;
 		while (j < colonnes + 1)
-			count_map[0][j++] = 0;
+			count_map[i][j++] = 0;
 		i++;
 	}
 }
