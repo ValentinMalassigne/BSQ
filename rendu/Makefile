@@ -26,7 +26,8 @@ SOURCES = filters.c \
 	  solve_file_func.c \
 	  solve_inputs.c \
 	  verif_files.c \
-	  verif_inputs.c 
+	  verif_inputs.c \
+	  free_func.c
 
 OBJECTS = $(SOURCES:.c=.o)
 

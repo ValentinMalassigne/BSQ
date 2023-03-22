@@ -24,7 +24,11 @@ int	main(int argc, char *argv[])
 	{
 		i = 1;
 		while (i < argc)
-			solve_file(argv[i++]);
+		{
+			solve_file(argv[i]);
+			if (i++ < argc - 1)
+				put_str("\n");
+		}
 	}
 	return (0);
 }

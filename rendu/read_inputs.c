@@ -19,7 +19,7 @@ char	*read_line(int buff_size)
 	char	*buf;
 	char	*tmp;
 
-	buf = malloc(sizeof(char) * buff_size);
+	buf = malloc(sizeof(char) * (buff_size + 1));
 	if (!buf)
 		return (NULL);
 	content = NULL;
@@ -49,12 +49,9 @@ char	*correct_first_map_line(char *str)
 		i++;
 	i = i + 1;
 	res = malloc (i * sizeof(char));
-	j = 0;
-	while (j < i - 1)
-	{
+	j = -1;
+	while (++j < i - 1)
 		res[j] = str[j];
-		j++;
-	}
 	res[j] = '\0';
 	free(str);
 	return (res);
@@ -87,7 +84,7 @@ int	read_inputs(char ***map, char **first_line)
 		return (0);
 	if (verif_first_line(*first_line) != 1)
 		return (0);
-	lines_count = ft_atoi(get_lines_count(*first_line));
+	lines_count = get_lines_count(*first_line);
 	*map = get_map(lines_count);
 	if (!*map)
 		return (0);

@@ -48,7 +48,7 @@ int	verif_first_line(char *file_content)
 		return (0);
 	if (check_duplicates((file_content + i), j - i) == 0)
 		return (0);
-	lines_count = ft_atoi(get_lines_count(file_content));
+	lines_count = get_lines_count(file_content);
 	if (lines_count == 0)
 		return (0);
 	return (1);

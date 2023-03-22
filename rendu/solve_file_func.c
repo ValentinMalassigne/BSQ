@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-void	init_map(char **map, char *file_content, int lignes, int colonnes)
+void	init_map(char **map, char *file_content, int lines, int columns)
 {
 	int	i;
 	int	j;
@@ -21,11 +21,11 @@ void	init_map(char **map, char *file_content, int lignes, int colonnes)
 	while (*file_content != '\n')
 		file_content++;
 	file_content++;
-	while (i < lignes)
+	while (i < lines)
 	{
 		j = 0;
-		map[i] = malloc((colonnes + 1) * sizeof(char));
-		while (j < colonnes)
+		map[i] = malloc((columns + 1) * sizeof(char));
+		while (j < columns)
 		{
 			map[i][j] = *file_content++;
 			j++;
@@ -36,20 +36,22 @@ void	init_map(char **map, char *file_content, int lignes, int colonnes)
 	}
 }
 
-char	**get_biggest_square(char **map, char *mask, int lignes, int colonnes)
+char	**get_biggest_square(char **map, char *mask, int lines, int columns)
 {
 	int		**count_map;
 	int		**filtered_map;
 
-	count_map = malloc((lignes + 1) * sizeof(int *));
-	filtered_map = apply_filter(map, mask, lignes, colonnes);
-	solve(filtered_map, count_map, lignes, colonnes);
-	replace_values(filtered_map, count_map, lignes, colonnes);
-	map = remove_filter(filtered_map, mask, lignes, colonnes);
+	count_map = malloc((lines + 1) * sizeof(int *));
+	filtered_map = apply_filter(map, mask, lines, columns);
+	solve(filtered_map, count_map, lines, columns);
+	replace_values(filtered_map, count_map, lines, columns);
+	map = remove_filter(filtered_map, mask, lines, columns);
+	free_int_map_and_content(count_map, lines + 1);
+	free_int_map_and_content(filtered_map, lines);
 	return (map);
 }
 
-char	*get_lines_count(char *file_content)
+int	get_lines_count(char *file_content)
 {
 	int		i;
 	char	*res;
@@ -65,7 +67,9 @@ char	*get_lines_count(char *file_content)
 		i++;
 	}
 	res[i] = '\0';
-	return (res);
+	i = ft_atoi(res);
+	free(res);
+	return (i);
 }
 
 int	get_lines_length(char *file_content)

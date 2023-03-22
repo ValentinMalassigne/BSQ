@@ -54,10 +54,10 @@ char	*parse(char *file_path)
 
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
-		return (MAP_ERROR);
+		return (NULL);
 	file_content = read_file(fd);
 	if (file_content == NULL)
-		return (MAP_ERROR);
+		return (NULL);
 	return (file_content);
 	free(file_content);
 	return (0);
