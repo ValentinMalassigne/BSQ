@@ -1,4 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   parser.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmalassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/22 21:02:56 by vmalassi          #+#    #+#             */
+/*   Updated: 2023/03/22 21:02:58 by vmalassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft.h"
+
+void	free_buf_content(char *buf, char *content)
+{
+	free(buf);
+	free(content);
+}
 
 char	*read_file(int fd)
 {
@@ -17,8 +35,7 @@ char	*read_file(int fd)
 		rd = read(fd, buf, BUFFER_SIZE);
 		if (rd == -1)
 		{
-			free(buf);
-			free(content);
+			free_buf_content(buf, content);
 			return (NULL);
 		}
 		buf[rd] = '\0';
@@ -42,10 +59,6 @@ char	*parse(char *file_path)
 	if (file_content == NULL)
 		return (MAP_ERROR);
 	return (file_content);
-//	add file_content parsing here
-//
-//	if (parse_file(dict, file_content) == 1)
-//		return (ERROR_DICT);
 	free(file_content);
 	return (0);
 }

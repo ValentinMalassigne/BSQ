@@ -16,9 +16,9 @@ void	init_map(char **map, char *file_content, int lignes, int colonnes)
 {
 	int	i;
 	int	j;
-	
+
 	i = 0;
-	while(*file_content != '\n')
+	while (*file_content != '\n')
 		file_content++;
 	file_content++;
 	while (i < lignes)
@@ -51,15 +51,15 @@ char	**get_biggest_square(char **map, char *mask, int lignes, int colonnes)
 
 char	*get_lines_count(char *file_content)
 {
-	int 	i;
+	int		i;
 	char	*res;
 
 	i = 0;
-	while(file_content[i] < 58 && file_content[i] > 47 && file_content[i])
+	while (file_content[i] < 58 && file_content[i] > 47 && file_content[i])
 		i++;
 	res = malloc((i + 1) * sizeof(char));
 	i = 0;
-	while(file_content[i] < 58 && file_content[i] > 47 && file_content[i])
+	while (file_content[i] < 58 && file_content[i] > 47 && file_content[i])
 	{
 		res[i] = file_content[i];
 		i++;
@@ -70,8 +70,8 @@ char	*get_lines_count(char *file_content)
 
 int	get_lines_length(char *file_content)
 {
-	while(*file_content != '\n' && *file_content)
+	while (*file_content != '\n' && *file_content)
 		file_content++;
 	file_content++;
-	return (length_until_char(file_content , '\n'));
+	return (length_until_char(file_content, '\n'));
 }

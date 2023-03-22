@@ -17,13 +17,13 @@ int	length_until_char(char *str, char c)
 	int	length;
 
 	length = 0;
-	while (str[length] && str[length]!= c)
+	while (str[length] && str[length] != c)
 		length++;
 	return (length);
 }
 
 void	put_str(char *str)
 {
-	while(*str)
+	while (*str)
 		write(1, str++, 1);
 }

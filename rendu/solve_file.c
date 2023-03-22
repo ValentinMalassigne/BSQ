@@ -22,18 +22,15 @@ void	solving(char *file_content, char *filter, int l_count, int l_length)
 	display_map(map, l_count, l_length);
 }
 
-void	solve_file(char *file_path)
+void	solve_file2(char *file_content)
 {
-	
-	char	*file_content;
 	char	*filter;
 	int		lines_count;
 	int		lines_length;
 
-	file_content = parse(file_path);
-	if(file_content == NULL)
+	if (file_content == NULL)
 		put_str("map error\n");
-	if(verif_first_line(file_content) == 1)
+	if (verif_first_line(file_content) == 1)
 	{
 		lines_count = ft_atoi(get_lines_count(file_content));
 		if (verif_lines_count(file_content, lines_count) == 1)
@@ -51,4 +48,9 @@ void	solve_file(char *file_path)
 		}
 	}
 	put_str("map error\n");
+}
+
+void	solve_file(char *file_path)
+{
+	solve_file2(parse(file_path));
 }

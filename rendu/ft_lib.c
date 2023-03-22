@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_lib.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: vmalassi <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/03/22 21:01:40 by vmalassi          #+#    #+#             */
+/*   Updated: 2023/03/22 21:01:42 by vmalassi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft.h"
 
 char	*ft_strdup(char *src)
@@ -56,7 +68,7 @@ unsigned int	ft_strlcat(char *dest, char *src, unsigned int size)
 
 char	*ft_strjoin(char *s1, char *s2)
 {
-	char	*res;
+	char			*res;
 	unsigned int	size;
 
 	if (!s1 && !s2)
@@ -73,4 +85,3 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_strlcat(res, s2, size);
 	return (res);
 }
-

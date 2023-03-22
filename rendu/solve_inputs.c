@@ -12,7 +12,7 @@
 
 #include "ft.h"
 
-void	solve_inputs()
+void	solve_inputs(void)
 {
 	char	*first_line;
 	char	**map;

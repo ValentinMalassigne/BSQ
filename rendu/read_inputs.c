@@ -12,22 +12,23 @@
 
 #include "ft.h"
 
-char *read_line(int buff_size)
+char	*read_line(int buff_size)
 {
 	int		rd;
 	char	*content;
 	char	*buf;
 	char	*tmp;
+
 	buf = malloc(sizeof(char) * buff_size);
 	if (!buf)
-		return NULL;
+		return (NULL);
 	content = NULL;
 	rd = read(0, buf, BUFFER_SIZE);
 	if (rd == -1)
 	{
 		free(buf);
 		free(content);
-		return NULL;
+		return (NULL);
 	}
 	buf[rd] = '\0';
 	tmp = ft_strjoin(content, buf);
@@ -39,12 +40,12 @@ char *read_line(int buff_size)
 
 char	*correct_first_map_line(char *str)
 {
-	int 	i;
+	int		i;
 	int		j;
 	char	*res;
 
 	i = 0;
-	while(str[i]!= '\n' && str[i])
+	while (str[i] != '\n' && str[i])
 		i++;
 	i = i + 1;
 	res = malloc (i * sizeof(char));

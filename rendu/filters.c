@@ -73,12 +73,11 @@ char	*get_filter(char *file_content)
 
 	i = 0;
 	filter = malloc(4 * sizeof(char));
-	while(file_content[i] < 58 && file_content[i] > 47 && file_content[i])
+	while (file_content[i] < 58 && file_content[i] > 47 && file_content[i])
 		i++;
 	filter[0] = file_content[i++];
 	filter[1] = file_content[i++];
 	filter[2] = file_content[i++];
 	filter[3] = '\0';
-	
 	return (filter);
 }

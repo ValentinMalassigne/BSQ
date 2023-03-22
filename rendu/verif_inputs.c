@@ -25,12 +25,12 @@ int	check_length(char **map, int lines_count)
 			return (0);
 		i++;
 	}
-	if(length < 1)
+	if (length < 1)
 		return (0);
 	return (1);
 }
 
-int check_chars(char **map, int lines_count, char *filter)
+int	check_chars(char **map, int lines_count, char *filter)
 {
 	int	i;
 	int	j;
@@ -44,7 +44,8 @@ int check_chars(char **map, int lines_count, char *filter)
 		j = 0;
 		while (j < length)
 		{
-			if(map[i][j] != filter[0] && map[i][j] != filter[1] && map[i][j] != '\n')
+			if (map[i][j] != filter[0] && map[i][j] != filter[1]
+				&& map[i][j] != '\n')
 				return (0);
 			j++;
 		}
