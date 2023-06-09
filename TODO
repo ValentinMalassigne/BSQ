@@ -1,0 +1,41 @@
+Verifier le file_content
+
+
+
+Verifie le respect des consignes
+
+Verifier les forbidden func / imports / norminette / free
+
+
+A faire :
+
+bonne premiere ligne : un nonmbre > 0, 3caracteres differents
+bon nb de lignes, 
+bonne longueur de ligne, 
+bon caracteres (a la base uniquement des vides & obstacles)
+
+Verifier que la carte est valide(voir pdf)
+
+
+Si standard input :
+	- Recup la premiere ligne, en deduire la suite
+	
+    - Remplir la matrice
+    
+    - verifier son contenu de la meme maniere qu'un fichier
+    
+
+
+Rendre un makeFile qui compile le projet et qui ne relink pas.
+
+Bonus :
+
+-- Verifier que ca marche de 1 a n params (surtout avec des gros tab et des tabs random)
+
+-- Si plusieurs params, affichier 1 a 1 les solutions ou map error suivit d"un ling break;
+
+
+
+Fait :
+
+Si fichiers : verifier la structure des fichiers avant de faire l'appel du print, cad :
