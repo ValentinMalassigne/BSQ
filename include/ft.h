@@ -7,8 +7,9 @@
 
 typedef struct str_point
 {
-	int	x;
-	int	y;
+	int	i;
+	int	j;
+	int value;
 }t_point;
 
 typedef struct str_map
